@@ -1,11 +1,11 @@
 # Machine Learning: Bottom Up
 
-Building Machine Learning methods from the ground up.
+### Building Machine Learning methods from the ground up.
 
 
 **Code avaliable here:**
 
-##Supervised ML
+## Supervised ML
 
 Regression: 
 - Simple Linear Regression using gradient descent
@@ -15,4 +15,4 @@ Classification:
  - Binary Logistic Regression using gradient descent
  - Neural Network using gradient descent
 
-##Unsupervised ML
+## Unsupervised ML
