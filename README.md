@@ -2,9 +2,6 @@
 
 ### Building Machine Learning methods from the ground up.
 
-
-**Code avaliable here:**
-
 ## Supervised ML
 
 Regression: 
@@ -16,3 +13,5 @@ Classification:
  - Neural Network using gradient descent
 
 ## Unsupervised ML
+
+Nothing yet
