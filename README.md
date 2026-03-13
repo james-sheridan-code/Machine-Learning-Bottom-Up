@@ -5,12 +5,14 @@
 ## Supervised ML
 
 Regression: 
-- Simple Linear Regression using gradient descent
- - Multiple Linear Regression using gradient descent
+ - Simple Linear Regression using batch gradient descent (SLR_MSE_BGD)
+ - Multiple Linear Regression using batch gradient descent (MLR_MSE_BGD)
+ - Multiple Linear Regression using mini-batch gradient descent (MLR_MSE_MBGD)
 
 Classification:
- - Binary Logistic Regression using gradient descent
- - Neural Network using gradient descent
+ - Binary Logistic Regression using batch gradient descent (BLR_BCE_BGD)
+ - Binary Logistic Regression using mini-batch gradient descent (BLR_BCE_MBGD)
+ - Neural Network using batch gradient descent
 
 ## Unsupervised ML
 
