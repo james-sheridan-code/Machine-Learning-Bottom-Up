@@ -1,10 +1,9 @@
 """
-Manually Coding a Binary Logistic Regression.
+Manual implementation of a Binary Linear Regression using NumPy.
 
-Model Architecture: Y = sigmoid(W @ X + b)
-Cost Function: BCE (Binary Cross-Entropy)
-Optimisation: BGD (Batch Gradient Descent)
-
+Model:          Y = sigmoid(W @ X + b)
+Cost Function:  Binary Cross-Entropy (BCE)
+Optimisation:   Batch Gradient Descent (BGD)
 """
 
 import numpy as np
@@ -15,18 +14,34 @@ def main():
 
     X_train = standardise(X_train)
 
-    gradient_descent(W=np.array([0.0,0.0]), b=0, learn_rate=0.01, iterations=10000, y_train=y_train, X_train=X_train)
+    W, b = gradient_descent(W=np.zeros(2), b=0, learn_rate=0.01, iterations=10000, 
+                            y_train=y_train, X_train=X_train)
+    print(f"Final Results:\nw: {W.flatten()}\nb: {b:.2f}")
 
 
 def standardise(variable):
+    """
+    Standardise data to have: mean = 0, and standard deviation = 1.
+    Used to make gradient descent converge faster and more reliably.
+    
+    Returns the X matrix with each column standardised. 
+    """
     mean = np.mean(variable, axis=0)
     std = np.std(variable, axis=0)
     return (variable - mean) / std
 
 
 def gradient_descent(W, b, learn_rate, iterations, y_train, X_train):
+    """
+    Train a binary logistic regression model using Batch Gradient Descent.
 
-    m = len(y_train)
+    At each iteration, the gradient of the Binary Cross-Entropy (BCE)
+    cost function is computed using all training samples, and the
+    weights and bias are updated accordingly.
+
+    Returns the final weight matrix (W) and the final bias (b).
+    """
+    m = X_train.shape[0]
     W = W.reshape(-1,1)
     y_train = y_train.reshape(-1,1)
 
@@ -36,7 +51,7 @@ def gradient_descent(W, b, learn_rate, iterations, y_train, X_train):
         # Shapes: (6,1) = 1 / [1 + e^-{(6,2) @ (2,1) + scalar}]
         y_pred = 1 / (1 + np.exp(-((X_train @ W) + b)))
 
-        # current cost function (to check if cost goes down over time)
+        # Binary Cross-Entropy cost function
         cost = -np.mean(y_train * np.log(y_pred) + (1 - y_train) * np.log(1 - y_pred))
 
         # get partial derivative of w
@@ -49,17 +64,13 @@ def gradient_descent(W, b, learn_rate, iterations, y_train, X_train):
         # Shapes: scalar = scalar * scalar
         db = (1/m) * np.sum(y_pred - y_train)
 
-        temp_W = W - learn_rate * dw
-        temp_b = b - learn_rate * db
-        W = temp_W
-        b = temp_b
+        W -= learn_rate * dw
+        b -= learn_rate * db
 
         if i%100 == 0:
-            print(f"Iteration: {i}\tCost: {cost:.4f}\tW: {W[0,0]:.2f}, {W[1,0]:.2f}\tb: {b:.2f}")
-
-    print(f"Final Results:\nw: {W[0,0]:.2f}, {W[1,0]:.2f}\nb: {b:.2f}")
+            print(f"Iteration: {i}\tCost: {cost:.4f}\tW: {W.flatten()}\tb: {b:.2f}")
+    return W, b
 
 
 if __name__ == '__main__':
-
     main()
