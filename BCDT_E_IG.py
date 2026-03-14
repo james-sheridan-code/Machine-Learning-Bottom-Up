@@ -1,5 +1,5 @@
 """
-Manual implementation of a Decision Tree using NumPy.
+Manual implementation of a Binary Classification Decision Tree using NumPy.
 
 Impurity Measure:    Entropy function
 Splitting Criterion: Information Gain
