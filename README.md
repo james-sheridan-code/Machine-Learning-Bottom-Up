@@ -18,7 +18,7 @@ Classification:
  - Binary Logistic Regression using batch gradient descent (BLR_BCE_BGD)
  - Binary Logistic Regression using mini-batch gradient descent (BLR_BCE_MBGD)
  - Binary Logistic Regression using stochastic gradient descent (BLR_BCE_SGD)
- - (to do) Multi-Class Logistic Regression using batch gradient descent (MCLR_CCE_BGD)
+ - Multi-Class Logistic Regression using batch gradient descent (MCLR_CCE_BGD)
  - (to do) Multi-Label Logistic Regression using batch gradient descent (MLLR_CCE_BGD)
 
 ## Unsupervised ML
