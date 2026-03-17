@@ -25,3 +25,4 @@ Classification:
 
  - K-means Clustering (KMC)
  - Anomaly Detection (AD)
+ - Recommender System using batch gradient descent (RS_MSE_BGD)
