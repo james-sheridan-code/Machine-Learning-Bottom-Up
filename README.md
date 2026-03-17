@@ -23,4 +23,5 @@ Classification:
 
 ## Unsupervised ML
 
- - K-means Clustering
+ - K-means Clustering (KMC)
+ - Anomaly Detection (AD)
